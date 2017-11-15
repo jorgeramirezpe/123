@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DISPO</title>
+  </head>
+  <body>
+
+
+
+  <h1 id="holamundo"></h1>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCGyznYwiZtZ_1yRNmigvinW4MQsU5jzBY",
+      authDomain: "dispo-a9b8d.firebaseapp.com",
+      databaseURL: "https://dispo-a9b8d.firebaseio.com",
+      projectId: "dispo-a9b8d",
+      storageBucket: "",
+      messagingSenderId: "1015157204856"
+    };
+    firebase.initializeApp(config);
+
+    var holamundo = document.getElementById('holamundo');
+
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => holamundo.innerText = snap.val());
+
+  </script>
+  </body>
+</html>
